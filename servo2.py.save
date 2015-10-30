@@ -1,0 +1,33 @@
+# Courtesy of Gaven MacDonald on Youtube
+# Using a servo requires PWM - Pulse Width Modulation
+# Required are some calculations re: Duty Cycle which
+# have been integrated into the code.
+
+import RPi.GPIO as GPIO
+import time
+
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(7, GPIO.OUT)
+
+# Set up PWM
+p = GPIO.PWM(7,50)
+p.start(7.5) # Neutral for Gaven's servo 7.5
+
+try:
+	while True:
+		# Set to Neutral
+		p.ChangeDutyCycle(7.5)
+		time.sleep(1) # Wait for 1 sec
+		# Set to 180 degrees
+		p.ChangeDutyCycle(12.5)
+		time.sleep(1)
+
+		# Set to 0 degrees
+
+		p.ChangeDutyCycle(2.5)
+		time.sleep(1)
+
+# Keep looping until a key is pressed.
+except KeyboardInterrupt:
+	GPIO.cleanup()
+
