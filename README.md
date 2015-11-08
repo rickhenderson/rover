@@ -9,6 +9,7 @@ __October 29, 2015__
 which is monolithic, move2.py includes functions `moveForward(intTime)` and `moveBackward(intTime)` to move the rover for a period of seconds. My first Python functions!
 
 __November 7, 2015__
+- wrote `moveturn.py` to test turning
 - purchased a Mental Beats battery back for untethered greatness!
 - seems not to have enough power to turn
 - added `turnLeft(intTime)` but it is actually a right turn. Will fix it later.
