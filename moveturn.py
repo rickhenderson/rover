@@ -1,18 +1,15 @@
-""" move2.py
+""" moveturn.py
 	Program to control motors on a bot from a Raspberry Pi.
 	Created by: Rick Henderson
-	Created on: October 19, 2015
-	Code from: https://youtu.be/AZSiqj0NZgU
-	Updated: October 25, 2015
-		- Modifed to make it move forward for 2 seconds
-		- and then backwards.
-	Updated: October 29, 2015
-		- Modified it to use functions for moving backward and forward
-		- after getting 4 motors to run
-		November 7, 2015
+	Created on: November 7, 2015
 		- purchased a Mental Beats battery back for untethered greatness!
-	Pins 7&11 control left back and left front motors.
-	Pins 13&15 control right back and right front motors.
+		- seems not to have enough power to turn
+	Updated Nov 7, 2015:
+	Pin 7 controls left motors in forward direction
+	Pin 11 - Left backward
+
+	Pin 15 - Right side motors forward
+	Pin 13 - right side motors backwards
 """
 
 import RPi.GPIO as GPIO
@@ -24,6 +21,8 @@ GPIO.setup(7, GPIO.OUT)
 GPIO.setup(11, GPIO.OUT)
 GPIO.setup(13, GPIO.OUT)
 GPIO.setup(15, GPIO.OUT)
+
+### Function definitions
 
 def moveForward( intTime ):
 	" Move the rover forward for intTime seconds."
@@ -51,15 +50,30 @@ def moveBackward( intTime ):
 	GPIO.output(13, False)
 	return;
 
+def turnLeft( intTime ):
+	# Try 0.97 seconds for 90 degree turn
+	print("Turning left...")
+	GPIO.output(7, True)
+	GPIO.output(13, True)
+
+	# Sleep the processor so the motors continue to turn.
+	time.sleep(intTime)
+	# Set the pins to false to stop.
+	GPIO.output(7, False)
+	GPIO.output(13, False)
+
+	return;
+
+
 # Main ##########################################
-# Move forward for 2 seconds
-moveForward(10)
-# Move Backwards for 2 seconds
-#moveBackward(2)
+# Move forward for 5 seconds
+moveForward(5)
+turnLeft(1)
+# Move Backwards for 5 seconds
+moveBackward(5)
 
 # Delay then clean up
 time.sleep(1)
 GPIO.cleanup()
-
 
 
