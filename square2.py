@@ -1,9 +1,7 @@
-""" moveturn.py
-	Program to control motors on a bot from a Raspberry Pi.
+""" square2.py
+	Program to move Rover in a small square suitable for small areas.
 	Created by: Rick Henderson
-	Created on: November 7, 2015
-		- purchased a Mental Beats battery back for untethered greatness!
-		- seems not to have enough power to turn
+	Created on: April 18, 2016
 	
 	Notes:
 	April 16, 2016
@@ -88,28 +86,25 @@ def turnLeft( intTime ):
 
 
 # Main ##########################################
-# Move forward for 2 seconds
-moveForward(2)
-turnLeft(1)
-moveForward(2)
-turnRight(1)
-moveForward(2)
+time.sleep(5)
+
+
+
 
 # Move in a square!
-turnLeft(1)
+moveForward(2)
+turnLeft(2)
 moveForward(2)
 turnLeft(1)
 moveForward(2)
 turnLeft(1)
 moveForward(2)
 turnLeft(1)
-moveForward(2)
 
 # Move Backwards for 3 seconds
-moveBackward(3)
+moveBackward(2)
+print("Square completed.")
 
 # Delay then clean up
 time.sleep(1)
 GPIO.cleanup()
-
-

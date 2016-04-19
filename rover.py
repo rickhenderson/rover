@@ -1,23 +1,22 @@
-""" moveturn.py
-	Program to control motors on a bot from a Raspberry Pi.
+""" rover.py
+	Module to store functions to control an autonomous rover.
 	Created by: Rick Henderson
-	Created on: November 7, 2015
-		- purchased a Mental Beats battery back for untethered greatness!
-		- seems not to have enough power to turn
+	Created on: April 18, 2016
 	
 	Notes:
-	April 16, 2016
+	April 18, 2016
+	* Added clean up routine because GPIO isn't exposed in 
+          user programs.
 	* Turns OK on smooth surface. Use 1 sec for 90 degree turn.
         * Will buy Pi Servo Hat since Pi has inaccurate PWM signals 
           which could be causing the problem.
-	* The Left/Right description below is probably backwards.
 
-	Updated Nov 7, 2015:
-	Pin 7 controls left motors in forward direction
-	Pin 11 - Left backward
+	Updated April 18, 2016:
+	Pin 7 controls right motors in forward direction
+	Pin 11 - right backward
 
-	Pin 15 - Right side motors forward
-	Pin 13 - right side motors backwards
+	Pin 15 - Left side motors forward
+	Pin 13 - Right side motors backwards
 """
 
 import RPi.GPIO as GPIO
@@ -86,30 +85,6 @@ def turnLeft( intTime ):
 
 	return;
 
-
-# Main ##########################################
-# Move forward for 2 seconds
-moveForward(2)
-turnLeft(1)
-moveForward(2)
-turnRight(1)
-moveForward(2)
-
-# Move in a square!
-turnLeft(1)
-moveForward(2)
-turnLeft(1)
-moveForward(2)
-turnLeft(1)
-moveForward(2)
-turnLeft(1)
-moveForward(2)
-
-# Move Backwards for 3 seconds
-moveBackward(3)
-
-# Delay then clean up
-time.sleep(1)
-GPIO.cleanup()
-
+def cleanup():
+	GPIO.cleanup()
 

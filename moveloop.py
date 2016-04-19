@@ -20,28 +20,27 @@ GPIO.setup(11, GPIO.OUT)
 GPIO.setup(13, GPIO.OUT)
 GPIO.setup(15, GPIO.OUT)
 
-# Set and a signal 
-#To drive motor forward, set pins 7 and 15 to True.
-print("Moving forward...")
-GPIO.output(7, True)
-GPIO.output(15, True)
-time.sleep(3)
-GPIO.output(7, False)
-GPIO.output(15, False)
 
-input("Press Enter: ")
+for x in range (0, 3):
+	# Set and a signal 
+	#To drive motor forward, set pins 7 and 15 to True.
+	print("Moving forward...")
+	GPIO.output(7, True)
+	GPIO.output(15, True)
+	time.sleep(3)
+	GPIO.output(7, False)
+	GPIO.output(15, False)
 
-print("Moving backward...")
-GPIO.output(11, True)
-GPIO.output(13, True)
+	print("Moving backward...")
+	GPIO.output(11, True)
+	GPIO.output(13, True)
 
-time.sleep(3)
+	time.sleep(3)
 
-GPIO.output(11, False)
-GPIO.output(13, False)
+	GPIO.output(11, False)
+	GPIO.output(13, False)
+	time.sleep(1)
 
-
-time.sleep(1)
 GPIO.cleanup()
 
 
