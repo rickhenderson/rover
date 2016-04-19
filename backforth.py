@@ -1,7 +1,9 @@
 """ backforth.py
         * usage: sudo python backforth.py <nreps>
 
-	Module to store functions to control an autonomous rover.
+	Program to move the rover forward and backwards a 
+        specified number of times.
+
 	Created by: Rick Henderson
 	Created on: April 18, 2016
 	
