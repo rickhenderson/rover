@@ -17,3 +17,11 @@ __November 7, 2015__
 - Pin 11 - Left motors in backward direction
 - Pin 15 - Right side motors forward
 - Pin 13 - right side motors backwards
+
+__April 18, 2016__
+* Fixed left/right turn function names
+* Turns appear underpowered on carpet, but probably need to by a Pi Servo Hat as the Raspberry Pi is known to have inaccurate PWM signals.
+* Created `rover.py` as a module to store movement functions.
+* Wrote `backforth.py` to use command line argument for number of repetitions and it imports `rover.py`
+* `square2.py` moves the rover in a square where the robot travels 2 seconds in each direction. Slight problem with turns but may be fixed with Pi Servo Hat.
+
