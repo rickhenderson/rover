@@ -4,7 +4,7 @@
 	Created on: April 18, 2016
 	
 	Notes:
-	April 16, 2016
+	April 18, 2016
 	* Turns OK on smooth surface. Use 1 sec for 90 degree turn.
         * Will buy Pi Servo Hat since Pi has inaccurate PWM signals 
           which could be causing the problem.
