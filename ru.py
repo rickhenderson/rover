@@ -36,7 +36,7 @@ def cleanup():
 # A list of active pins
 active_list = [7, 11, 13, 15]
 
-print("\n**** Interactive Rover Control Utility *****"\n)
+print("\n**** Interactive Rover Control Utility *****\n")
 print("Possible setup: Forward: 7 and 15. Reverse: 11 and 13")
 current_pin = int(input("Enter the pin you want to activate. Enter 99 to quit: "))
 
