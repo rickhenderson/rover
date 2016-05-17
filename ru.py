@@ -12,8 +12,9 @@
 	  one tire rotates. Need to check also to see if grnd wire from board
 	  should connect to grnd on Pi.
 	 
-	Pin 7 controls right motor in forward direction
-	Pin 11 - right backward
+        # These settings are for Sprout:
+	Pin 07 - controls right motor in backward
+	Pin 11 - right forward
 	Pin 15 - Left side motor forward
 	Pin 13 - Right side motor backwards
 """
@@ -37,7 +38,7 @@ def cleanup():
 active_list = [7, 11, 13, 15]
 
 print("\n***** Interactive Rover Control Utility *****\n")
-print("Possible setup: Forward: 7 and 15. Reverse: 11 and 13")
+print("Possible setup: Forward: 11 and 15. Reverse: 7 and 13")
 current_pin = int(input("Enter the pin you want to activate. Enter 99 to quit: "))
 
 while current_pin != 99:
@@ -50,5 +51,9 @@ while current_pin != 99:
     GPIO.output(current_pin, True)
     time.sleep(3)
     GPIO.output(current_pin, False)
-  
+    
+    # Get another value for the next test
+    current_pin = int(input("Enter the pin you want to activate. Enter 99 to quit: "))
+    
+# Set all the pins to off 
 cleanup()
